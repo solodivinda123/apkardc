@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.P.KA - Alliance Politique des Kasavubistes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="images/logo.jpg" alt="APKA Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="apka-logo" style="display: none;"></div>
+                <div class="logo-text">A.P.<span>KA</span></div>
+            </div>
+            
+            <div class="nav-container">
+                <nav>
+                    <a href="#accueil" class="active">
+                        <i class="fas fa-home"></i>
+                        Accueil
+                    </a>
+                    <a href="#apropos">
+                        <i class="fas fa-info-circle"></i>
+                        À Propos
+                    </a>
+                    <a href="#valeurs">
+                        <i class="fas fa-heart"></i>
+                        Nos Valeurs
+                    </a>
+                    <a href="#histoire">
+                        <i class="fas fa-history"></i>
+                        Notre Histoire
+                    </a>
+                    <a href="#galerie">
+                        <i class="fas fa-images"></i>
+                        Galerie
+                    </a>
+                    <a href="#leader">
+                        <i class="fas fa-user-tie"></i>
+                        Notre Leader
+                    </a>
+                    <a href="#rejoindre">
+                        <i class="fas fa-user-plus"></i>
+                        Nous Rejoindre
+                    </a>
+                </nav>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Alliance Politique des Kasavubistes</h1>
+                <p class="hero-subtitle">Perpétuant l'héritage du Président Joseph Kasavubu pour un Congo uni, pacifique et prospère</p>
+                <div class="hero-btns">
+                    <a href="#rejoindre" class="btn btn-primary">Nous Rejoindre</a>
+                    <a href="#valeurs" class="btn btn-secondary">Découvrir nos Valeurs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="apropos">
+        <div class="container">
+            <h2 class="section-title">Qui sommes-nous?</h2>
+            <p class="section-subtitle">L'Alliance Politique des Kasavubistes (A.P.KA) est une plateforme politique engagée à perpétuer les idéaux et les valeurs du premier Président de la RDC</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Nous sommes des disciples spirituels de Joseph Kasavubu, ce grand homme qui a défendu avec courage et sagesse l'intégrité territoriale de notre nation de manière pacifique, malgré les humiliations et les épreuves.</p>
+                    <p>Notre mission est de promouvoir l'intérêt général, l'honnêteté, l'intégrité et la bonne gouvernance, valeurs cardinales qui ont guidé le leadership de Joseph Kasavubu.</p>
+                    <p>L'APKA s'engage à défendre les intérêts du peuple congolais et à œuvrer pour un Congo uni, fort et prospère, fidèle à l'héritage de notre premier président.</p>
+                    <p>Nous invitons tous les Congolais attachés à ces valeurs à rejoindre notre mouvement pour bâtir ensemble l'avenir de notre nation.</p>
+                </div>
+                <div class="about-image animate">
+                    <img src="images/joseph-kasavubu.jpg" alt="Joseph Kasavubu - Premier Président de la RDC" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/5/5f/Joseph_Kasa-Vubu.jpg'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section values" id="valeurs">
+        <div class="container">
+            <h2 class="section-title">Nos Valeurs Fondamentales</h2>
+            <p class="section-subtitle">Les principes qui guident notre action politique et notre vision pour la RDC</p>
+            
+            <div class="values-grid">
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="value-title">Intérêt Général</h3>
+                    <p>Nous plaçons l'intérêt du peuple congolais au-dessus de tout, suivant l'exemple de Joseph Kasavubu qui a toujours privilégié le bien commun.</p>
+                </div>
+                
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="value-title">Intégrité</h3>
+                    <p>Nous nous engageons à maintenir une conduite irréprochable, transparente et responsable dans toutes nos actions politiques.</p>
+                </div>
+                
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="value-title">Bonne Gouvernance</h3>
+                    <p>Nous promouvons une gestion efficace, équitable et participative des affaires publiques pour le développement durable de la RDC.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="section" id="histoire">
+        <div class="container">
+            <h2 class="section-title">L'Héritage de Joseph Kasavubu</h2>
+            <p class="section-subtitle">Retour sur le parcours et les réalisations du premier Président de la République Démocratique du Congo</p>
+            
+            <div class="timeline">
+                <div class="timeline-item animate">
+                    <div class="timeline-content">
+                        <h3>1960 - Premier Président de la RDC</h3>
+                        <p>Joseph Kasavubu devient le premier Président de la République Démocratique du Congo après l'indépendance, marquant le début d'une nouvelle ère pour la nation.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate">
+                    <div class="timeline-content">
+                        <h3>Défense de l'Unité Nationale</h3>
+                        <p>Face aux multiples crises post-indépendance, Kasavubu a œuvré sans relâche pour préserver l'unité et l'intégrité territoriale du Congo, souvent au prix de grands sacrifices personnels.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate">
+                    <div class="timeline-content">
+                        <h3>Leadership Pacifique</h3>
+                        <p>Contrairement à d'autres dirigeants de l'époque, Kasavubu a toujours privilégié la voie du dialogue et de la négociation pour résoudre les conflits, établissant un modèle de leadership sage et mesuré.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate">
+                    <div class="timeline-content">
+                        <h3>Héritage Durable</h3>
+                        <p>Aujourd'hui, l'A.P.KA se nourrit de cet héritage pour proposer une alternative politique ancrée dans les valeurs d'intégrité, de service public et d'amour de la patrie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leader Section -->
+    <section class="section leader" id="leader">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Notre Leader</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Pierre Baseya Ndombe, Président de l'Alliance Politique des Kasavubistes</p>
+            
+            <div class="leader-container">
+                <div class="leader-image-container">
+                    <div class="leader-image-frame"></div>
+                    <div class="leader-image animate">
+                        <img src="images/pierre-baseya-ndombe.jpg" alt="Pierre Baseya Ndombe" onerror="this.src='https://via.placeholder.com/400x500/002B7F/FFFFFF?text=Pierre+Baseya+Ndombe'">
+                    </div>
+                </div>
+                <div class="leader-info">
+                    <div class="leader-title">Président de l'APKA</div>
+                    <p>"Vous savez que nous sommes des disciples spirituels du feu Président Joseph Kasavubu. Il n'y a pas mieux que lui dans la défense de l'intégrité territoriale de manière pacifique."</p>
+                    <p class="leader-quote">"Nous prônons les vraies valeurs de notre héros, le premier président de la RDC, l'homme de l'intérêt général d'abord, l'honnêteté, l'intégrité et la bonne gouvernance."</p>
+                    <p>Pierre Baseya Ndombe, Président de la plateforme politique "Alliance politique des Kasavubistes", incarne les valeurs de leadership et de service public héritées de Joseph Kasavubu.</p>
+                    <p>Engagé dans la vie politique congolaise depuis de nombreuses années, il s'est donné pour mission de raviver l'esprit kasavubiste au service du développement et de l'unité nationale.</p>
+                    
+                    <div class="leader-signature">
+                        <p><strong>Pierre Baseya Ndombe</strong></p>
+                        <p>Président de l'APKA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery" id="galerie">
+        <div class="container">
+            <h2 class="section-title">Galerie Photos</h2>
+            <p class="section-subtitle">Découvrez les moments importants de l'Alliance Politique des Kasavubistes</p>
+            
+            <div class="gallery-container">
+                <div class="gallery-slider">
+                    <div class="gallery-slide active" data-index="0">
+                        <img src="images/gallery-1.jpg" alt="APKA Image 1" loading="eager">
+                        <div class="slide-content">
+                            <h3>Alliance Politique des Kasavubistes</h3>
+                            <p>L'héritage et la vision de Joseph Kasavubu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-slide" data-index="1">
+                        <img src="images/gallery-2.jpg" alt="APKA Image 2" loading="eager">
+                        <div class="slide-content">
+                            <h3>Engagement Politique</h3>
+                            <p>Notre engagement pour un Congo uni et prospère</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-slide" data-index="2">
+                        <img src="images/logo.jpg" alt="Logo APKA" loading="eager">
+                        <div class="slide-content">
+                            <h3>Logo Officiel APKA</h3>
+                            <p>L'emblème de l'Alliance Politique des Kasavubistes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="gallery-nav gallery-prev" id="galleryPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="gallery-nav gallery-next" id="galleryNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="gallery-dots" id="galleryDots">
+                    <button class="gallery-dot active" data-index="0"></button>
+                    <button class="gallery-dot" data-index="1"></button>
+                    <button class="gallery-dot" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="" alt="" class="modal-image" id="modalImage">
+            <button class="modal-nav modal-prev" id="modalPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="modal-nav modal-next" id="modalNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Form Section -->
+    <section class="section" id="rejoindre">
+        <div class="container">
+            <h2 class="section-title">Rejoignez l'APKA</h2>
+            <p class="section-subtitle">Adhérez à notre mouvement pour perpétuer l'héritage de Joseph Kasavubu et bâtir un Congo meilleur</p>
+            
+            <div class="form-container animate">
+                <form id="membershipForm" method="POST">
+                    <div class="form-group">
+                        <label for="fullname">Nom Complet *</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Entrez votre nom complet" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Adresse Email *</label>
+                        <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Numéro de Téléphone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Entrez votre numéro de téléphone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="province">Province *</label>
+                        <select id="province" name="province" required>
+                            <option value="">Sélectionnez votre province</option>
+                            <option value="kinshasa">Kinshasa</option>
+                            <option value="kongo-central">Kongo-Central</option>
+                            <option value="kwango">Kwango</option>
+                            <option value="kwilu">Kwilu</option>
+                            <option value="mai-ndombe">Mai-Ndombe</option>
+                            <option value="kasai">Kasaï</option>
+                            <option value="kasai-central">Kasaï-Central</option>
+                            <option value="kasai-oriental">Kasaï-Oriental</option>
+                            <option value="lomami">Lomami</option>
+                            <option value="sankuru">Sankuru</option>
+                            <option value="manema">Maniema</option>
+                            <option value="sud-kivu">Sud-Kivu</option>
+                            <option value="nord-kivu">Nord-Kivu</option>
+                            <option value="ituri">Ituri</option>
+                            <option value="haut-uele">Haut-Uele</option>
+                            <option value="bas-uele">Bas-Uele</option>
+                            <option value="tshopo">Tshopo</option>
+                            <option value="haut-lomami">Haut-Lomami</option>
+                            <option value="lualaba">Lualaba</option>
+                            <option value="haut-katanga">Haut-Katanga</option>
+                            <option value="tanganyika">Tanganyika</option>
+                            <option value="equateur">Équateur</option>
+                            <option value="tshuapa">Tshuapa</option>
+                            <option value="mongala">Mongala</option>
+                            <option value="nord-ubangi">Nord-Ubangi</option>
+                            <option value="sud-ubangi">Sud-Ubangi</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Pourquoi souhaitez-vous rejoindre l'APKA? (Optionnel)</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Partagez vos motivations..."></textarea>
+                    </div>
+                    
+                    <div class="form-group" style="text-align: center;">
+                        <button type="submit" class="btn btn-primary" style="width: auto;" id="submitBtn">
+                            <span class="btn-text">Soumettre ma demande d'adhésion</span>
+                            <span class="btn-loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Envoi en cours...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo.jpg" alt="APKA Logo" style="height: 40px; width: auto; margin-right: 10px;" onerror="this.style.display='none'">
+                        <span>A.P.KA</span>
+                    </div>
+                    <p class="footer-about">L'Alliance Politique des Kasavubistes perpétue l'héritage du premier Président de la RDC pour un Congo uni, pacifique et prospère.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#apropos">À Propos</a></li>
+                        <li><a href="#valeurs">Nos Valeurs</a></li>
+                        <li><a href="#histoire">Notre Histoire</a></li>
+                        <li><a href="#leader">Notre Leader</a></li>
+                        <li><a href="#rejoindre">Nous Rejoindre</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Contactez-nous</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Avenue des Kasavubistes, Kinshasa, RDC</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+243 831 700 110</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>abrahamlumbuku@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Alliance Politique des Kasavubistes (A.P.KA). Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/243831700110" class="whatsapp-float" target="_blank" title="Contactez-nous sur WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

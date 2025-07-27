@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.P.KA - Alliance Politique des Kasavubistes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        :root {
+            --blue: #002B7F;
+            --yellow: #F7D417;
+            --red: #CE1126;
+            --light: #F8F9FA;
+            --dark: #1A1A1A;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-image {
+            height: 70px;
+            width: auto;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+            transition: var(--transition);
+            border-radius: 8px;
+        }
+        
+        .logo-image:hover {
+            transform: scale(1.08);
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+        }
+        
+        /* CSS-based APKA Logo as fallback */
+        .apka-logo {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+            transition: var(--transition);
+        }
+        
+        .apka-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(40, 167, 69, 0.4);
+        }
+        
+        .apka-logo:before {
+            content: 'O.A.P.KA';
+            color: white;
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-align: center;
+            line-height: 1;
+        }
+        
+        .flag-stripe {
+            width: 5px;
+            height: 40px;
+        }
+        
+        .blue-stripe { background-color: var(--blue); }
+        .yellow-stripe { background-color: var(--yellow); }
+        .red-stripe { background-color: var(--red); }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--blue);
+        }
+        
+        .logo-text span {
+            color: var(--red);
+        }
+        
+        /* Modern Tab-Style Navigation */
+        .nav-container {
+            position: relative;
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 25px;
+            padding: 8px;
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(206, 17, 38, 0.2);
+        }
+        
+        nav {
+            display: flex;
+            gap: 0;
+            position: relative;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #6c757d;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 12px 20px;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            background: transparent;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        nav a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.4) 100%);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--red);
+            transform: translateY(-1px);
+        }
+        
+        nav a:hover:before {
+            opacity: 1;
+        }
+        
+        nav a.active {
+            background: linear-gradient(180deg, var(--red) 0%, #e63946 100%);
+            color: white;
+            box-shadow: 
+                0 4px 15px rgba(206, 17, 38, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(206, 17, 38, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        nav a.active:before {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+            opacity: 1;
+        }
+        
+        nav a i {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        
+        nav a.active i {
+            opacity: 1;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 43, 127, 0.5), rgba(0, 43, 127, 0.5)), url('https://i.ibb.co/bM25wv0P/kasa-vubu-17-004-jpg-640-350-1-2-1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            margin: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background: var(--red);
+            color: white;
+            box-shadow: 0 4px 15px rgba(206, 17, 38, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: #e63946;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(206, 17, 38, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--blue);
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--red);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: rotate(-1deg);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .about-image:hover {
+            transform: rotate(0) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 43, 127, 0.1), rgba(206, 17, 38, 0.1));
+            z-index: 1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover:before {
+            opacity: 1;
+        }
+        
+        /* Values Section */
+        .values {
+            background: var(--light);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            color: var(--blue);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
+            color: var(--red);
+        }
+        
+        .value-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--blue);
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--yellow);
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 30px);
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 30px);
+            text-align: left;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .timeline-content:before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--red);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content:before {
+            right: -40px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content:before {
+            left: -40px;
+        }
+        
+        /* Leader Section - FIXED WITH ENHANCED DESIGN */
+        .leader {
+            background: linear-gradient(to right, rgba(0, 43, 127, 0.9), rgba(0, 43, 127, 0.9)), url('https://images.unsplash.com/photo-1542654071-8dd3f9f7a6c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+        }
+        
+        .leader-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .leader-image-container {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .leader-image {
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            z-index: 2;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 5px solid white;
+            transform: rotate(2deg);
+            transition: var(--transition);
+        }
+        
+        .leader-image:hover {
+            transform: rotate(0) scale(1.02);
+        }
+        
+        .leader-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .leader-image-frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--yellow);
+            border-radius: 10px;
+            top: 15px;
+            left: 15px;
+            z-index: 1;
+        }
+        
+        .leader-info {
+            flex: 1;
+            position: relative;
+            padding-top: 20px;
+        }
+        
+        .leader-title {
+            position: relative;
+            display: inline-block;
+            background: var(--red);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(206, 17, 38, 0.3);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .leader-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin: 30px 0;
+            padding-left: 20px;
+            border-left: 4px solid var(--yellow);
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .leader-quote:before {
+            content: "\201C";
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.2);
+            font-family: Georgia, serif;
+        }
+        
+        .leader-signature {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid var(--yellow);
+            display: inline-block;
+        }
+        
+        /* Form Section */
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--blue);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(0, 43, 127, 0.1);
+        }
+        
+        /* Form Submission Styles */
+        .btn-loading {
+            display: none;
+        }
+        
+        .btn.loading .btn-text {
+            display: none;
+        }
+        
+        .btn.loading .btn-loading {
+            display: inline-block;
+        }
+        
+        .form-success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+        }
+        
+        .form-error {
+            background: linear-gradient(135deg, #dc3545, #e74c3c);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(220, 53, 69, 0.3);
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .gallery-slider {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .gallery-slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .gallery-slide.prev {
+            transform: translateX(-100%);
+        }
+        
+        .gallery-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #f8f9fa;
+        }
+        
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 40px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease 0.2s;
+        }
+        
+        .gallery-slide.active .slide-content {
+            transform: translateY(0);
+        }
+        
+        .slide-content h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .slide-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue);
+        }
+        
+        .gallery-nav:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-prev {
+            left: -30px;
+        }
+        
+        .gallery-next {
+            right: -30px;
+        }
+        
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 43, 127, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-dot.active {
+            background: var(--blue);
+            transform: scale(1.3);
+        }
+        
+        .gallery-dot:hover {
+            background: var(--blue);
+            transform: scale(1.2);
+        }
+        
+        /* Gallery Modal */
+        .gallery-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: var(--red);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .modal-close:hover {
+            background: #e63946;
+            transform: scale(1.1);
+        }
+        
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .modal-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .modal-prev {
+            left: -70px;
+        }
+        
+        .modal-next {
+            right: -70px;
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            color: white;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(37, 211, 102, 0.6);
+            }
+            100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-about {
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--blue);
+            transform: translateY(-3px);
+        }
+        
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--red);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact i {
+            color: var(--red);
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .about-content,
+            .leader-container {
+                flex-direction: column;
+            }
+            
+            .about-image,
+            .leader-image-container {
+                margin-bottom: 30px;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding: 0 0 0 70px;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content:before,
+            .timeline-item:nth-child(even) .timeline-content:before {
+                left: -40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 20px;
+                right: 20px;
+                background: white;
+                border-radius: 15px;
+                padding: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                margin-top: 10px;
+            }
+            
+            .nav-container.show {
+                display: block;
+            }
+            
+            nav {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            nav a {
+                padding: 15px 20px;
+                border-radius: 12px;
+                justify-content: flex-start;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .leader-image {
+                max-width: 300px;
+            }
+            
+            .gallery-slider {
+                height: 450px;
+            }
+            
+            .slide-content {
+                padding: 25px;
+            }
+            
+            .slide-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .slide-content p {
+                font-size: 1rem;
+            }
+            
+            .gallery-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .gallery-prev {
+                left: -25px;
+            }
+            
+            .gallery-next {
+                right: -25px;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="https://i.ibb.co/Y4NtqPdg/Untitled-1.jpg" alt="APKA Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="apka-logo" style="display: none;"></div>
+                <div class="logo-text">A.P.<span>KA</span></div>
+            </div>
+            
+            <div class="nav-container">
+                <nav>
+                    <a href="#accueil" class="active">
+                        <i class="fas fa-home"></i>
+                        Accueil
+                    </a>
+                    <a href="#apropos">
+                        <i class="fas fa-info-circle"></i>
+                        À Propos
+                    </a>
+                    <a href="#valeurs">
+                        <i class="fas fa-heart"></i>
+                        Nos Valeurs
+                    </a>
+                    <a href="#histoire">
+                        <i class="fas fa-history"></i>
+                        Notre Histoire
+                    </a>
+                    <a href="#galerie">
+                        <i class="fas fa-images"></i>
+                        Galerie
+                    </a>
+                    <a href="#leader">
+                        <i class="fas fa-user-tie"></i>
+                        Notre Leader
+                    </a>
+                    <a href="#rejoindre">
+                        <i class="fas fa-user-plus"></i>
+                        Nous Rejoindre
+                    </a>
+                </nav>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Alliance Politique des Kasavubistes</h1>
+                <p class="hero-subtitle">Perpétuant l'héritage du Président Joseph Kasavubu pour un Congo uni, pacifique et prospère</p>
+                <div class="hero-btns">
+                    <a href="#rejoindre" class="btn btn-primary">Nous Rejoindre</a>
+                    <a href="#valeurs" class="btn btn-secondary">Découvrir nos Valeurs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="apropos">
+        <div class="container">
+            <h2 class="section-title">Qui sommes-nous?</h2>
+            <p class="section-subtitle">L'Alliance Politique des Kasavubistes (A.P.KA) est une plateforme politique engagée à perpétuer les idéaux et les valeurs du premier Président de la RDC</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Nous sommes des disciples spirituels de Joseph Kasavubu, ce grand homme qui a défendu avec courage et sagesse l'intégrité territoriale de notre nation de manière pacifique, malgré les humiliations et les épreuves.</p>
+                    <p>Notre mission est de promouvoir l'intérêt général, l'honnêteté, l'intégrité et la bonne gouvernance, valeurs cardinales qui ont guidé le leadership de Joseph Kasavubu.</p>
+                    <p>L'APKA s'engage à défendre les intérêts du peuple congolais et à œuvrer pour un Congo uni, fort et prospère, fidèle à l'héritage de notre premier président.</p>
+                    <p>Nous invitons tous les Congolais attachés à ces valeurs à rejoindre notre mouvement pour bâtir ensemble l'avenir de notre nation.</p>
+                </div>
+                <div class="about-image animate">
+                    <img src="https://i.ibb.co/zvMhfwk/11491610.jpg" alt="Joseph Kasavubu - Premier Président de la RDC" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/5/5f/Joseph_Kasa-Vubu.jpg'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section values" id="valeurs">
+        <div class="container">
+            <h2 class="section-title">Nos Valeurs Fondamentales</h2>
+            <p class="section-subtitle">Les principes qui guident notre action politique et notre vision pour la RDC</p>
+            
+            <div class="values-grid">
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="value-title">Intérêt Général</h3>
+                    <p>Nous plaçons l'intérêt du peuple congolais au-dessus de tout, suivant l'exemple de Joseph Kasavubu qui a toujours privilégié le bien commun.</p>
+                </div>
+                
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="value-title">Intégrité</h3>
+                    <p>Nous nous engageons à maintenir une conduite irréprochable, transparente et responsable dans toutes nos actions politiques.</p>
+                </div>
+                
+                <div class="value-card animate">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="value-title">Bonne Gouvernance</h3>
+                    <p>Nous promouvons une gestion efficace, équitable et participative des affaires publiques pour le développement durable de la RDC.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="section" id="histoire">
+        <div class="container">
+            <h2 class="section-title">L'Héritage de Joseph Kasavubu</h2>
+            <p class="section-subtitle">Retour sur le parcours et les réalisations du premier Président de la République Démocratique du Congo</p>
+            
+            <div class="timeline">
+                <div class="timeline-item animate">
+                    <div class="timeline-content">
+                        <h3>1960 - Premier Président de la RDC</h3>
+                        <p>Joseph Kasavubu devient le premier Président de la République Démocratique du Congo après l'indépendance, marquant le début d'une nouvelle ère pour la nation.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate">
+                    <div class="timeline-content">
+                        <h3>Défense de l'Unité Nationale</h3>
+                        <p>Face aux multiples crises post-indépendance, Kasavubu a œuvré sans relâche pour préserver l'unité et l'intégrité territoriale du Congo, souvent au prix de grands sacrifices personnels.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate">
+                    <div class="timeline-content">
+                        <h3>Leadership Pacifique</h3>
+                        <p>Contrairement à d'autres dirigeants de l'époque, Kasavubu a toujours privilégié la voie du dialogue et de la négociation pour résoudre les conflits, établissant un modèle de leadership sage et mesuré.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate">
+                    <div class="timeline-content">
+                        <h3>Héritage Durable</h3>
+                        <p>Aujourd'hui, l'A.P.KA se nourrit de cet héritage pour proposer une alternative politique ancrée dans les valeurs d'intégrité, de service public et d'amour de la patrie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leader Section - FIXED WITH ENHANCED DESIGN -->
+    <section class="section leader" id="leader">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Notre Leader</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Pierre Baseya Ndombe, Président de l'Alliance Politique des Kasavubistes</p>
+            
+            <div class="leader-container">
+                <div class="leader-image-container">
+                    <div class="leader-image-frame"></div>
+                    <div class="leader-image animate">
+                        <!-- FIXED IMAGE WITH PROVIDED LINK -->
+                        <img src="https://i.ibb.co/99XR4ZxS/images.jpg" alt="Pierre Baseya Ndombe" onerror="this.src='https://via.placeholder.com/400x500/002B7F/FFFFFF?text=Pierre+Baseya+Ndombe'">
+                    </div>
+                </div>
+                <div class="leader-info">
+                    <div class="leader-title">Président de l'APKA</div>
+                    <p>"Vous savez que nous sommes des disciples spirituels du feu Président Joseph Kasavubu. Il n'y a pas mieux que lui dans la défense de l'intégrité territoriale de manière pacifique."</p>
+                    <p class="leader-quote">"Nous prônons les vraies valeurs de notre héros, le premier président de la RDC, l'homme de l'intérêt général d'abord, l'honnêteté, l'intégrité et la bonne gouvernance."</p>
+                    <p>Pierre Baseya Ndombe, Président de la plateforme politique "Alliance politique des Kasavubistes", incarne les valeurs de leadership et de service public héritées de Joseph Kasavubu.</p>
+                    <p>Engagé dans la vie politique congolaise depuis de nombreuses années, il s'est donné pour mission de raviver l'esprit kasavubiste au service du développement et de l'unité nationale.</p>
+                    
+                    <div class="leader-signature">
+                        <p><strong>Pierre Baseya Ndombe</strong></p>
+                        <p>Président de l'APKA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery" id="galerie">
+        <div class="container">
+            <h2 class="section-title">Galerie Photos</h2>
+            <p class="section-subtitle">Découvrez les moments importants de l'Alliance Politique des Kasavubistes</p>
+            
+            <div class="gallery-container">
+                <div class="gallery-slider">
+                    <div class="gallery-slide active" data-index="0">
+                        <img src="https://i.ibb.co/m54YrmnN/1.jpg?quality=100&width=1920" alt="APKA Image 1" loading="eager">
+                        <div class="slide-content">
+                            <h3>Alliance Politique des Kasavubistes</h3>
+                            <p>L'héritage et la vision de Joseph Kasavubu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-slide" data-index="1">
+                        <img src="https://i.ibb.co/j2pr3qn/470190376-604929285391787-9134071789558682959-n.jpg?quality=100&width=1920" alt="APKA Image 2" loading="eager">
+                        <div class="slide-content">
+                            <h3>Engagement Politique</h3>
+                            <p>Notre engagement pour un Congo uni et prospère</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-slide" data-index="2">
+                        <img src="https://i.ibb.co/Y4NtqPdg/Untitled-1.jpg?quality=100&width=1920" alt="Logo APKA" loading="eager">
+                        <div class="slide-content">
+                            <h3>Logo Officiel APKA</h3>
+                            <p>L'emblème de l'Alliance Politique des Kasavubistes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="gallery-nav gallery-prev" id="galleryPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="gallery-nav gallery-next" id="galleryNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="gallery-dots" id="galleryDots">
+                    <button class="gallery-dot active" data-index="0"></button>
+                    <button class="gallery-dot" data-index="1"></button>
+                    <button class="gallery-dot" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="" alt="" class="modal-image" id="modalImage">
+            <button class="modal-nav modal-prev" id="modalPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="modal-nav modal-next" id="modalNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Form Section -->
+    <section class="section" id="rejoindre">
+        <div class="container">
+            <h2 class="section-title">Rejoignez l'APKA</h2>
+            <p class="section-subtitle">Adhérez à notre mouvement pour perpétuer l'héritage de Joseph Kasavubu et bâtir un Congo meilleur</p>
+            
+            <div class="form-container animate">
+                <form id="membershipForm" method="POST">
+                    <div class="form-group">
+                        <label for="fullname">Nom Complet *</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Entrez votre nom complet" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Adresse Email *</label>
+                        <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Numéro de Téléphone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Entrez votre numéro de téléphone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="province">Province *</label>
+                        <select id="province" name="province" required>
+                            <option value="">Sélectionnez votre province</option>
+                            <option value="kinshasa">Kinshasa</option>
+                            <option value="kongo-central">Kongo-Central</option>
+                            <option value="kwango">Kwango</option>
+                            <option value="kwilu">Kwilu</option>
+                            <option value="mai-ndombe">Mai-Ndombe</option>
+                            <option value="kasai">Kasaï</option>
+                            <option value="kasai-central">Kasaï-Central</option>
+                            <option value="kasai-oriental">Kasaï-Oriental</option>
+                            <option value="lomami">Lomami</option>
+                            <option value="sankuru">Sankuru</option>
+                            <option value="manema">Maniema</option>
+                            <option value="sud-kivu">Sud-Kivu</option>
+                            <option value="nord-kivu">Nord-Kivu</option>
+                            <option value="ituri">Ituri</option>
+                            <option value="haut-uele">Haut-Uele</option>
+                            <option value="bas-uele">Bas-Uele</option>
+                            <option value="tshopo">Tshopo</option>
+                            <option value="haut-lomami">Haut-Lomami</option>
+                            <option value="lualaba">Lualaba</option>
+                            <option value="haut-katanga">Haut-Katanga</option>
+                            <option value="tanganyika">Tanganyika</option>
+                            <option value="equateur">Équateur</option>
+                            <option value="tshuapa">Tshuapa</option>
+                            <option value="mongala">Mongala</option>
+                            <option value="nord-ubangi">Nord-Ubangi</option>
+                            <option value="sud-ubangi">Sud-Ubangi</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Pourquoi souhaitez-vous rejoindre l'APKA? (Optionnel)</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Partagez vos motivations..."></textarea>
+                    </div>
+                    
+                    <div class="form-group" style="text-align: center;">
+                        <button type="submit" class="btn btn-primary" style="width: auto;" id="submitBtn">
+                            <span class="btn-text">Soumettre ma demande d'adhésion</span>
+                            <span class="btn-loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Envoi en cours...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="https://i.ibb.co/Y4NtqPdg/Untitled-1.jpg" alt="APKA Logo" style="height: 40px; width: auto; margin-right: 10px;" onerror="this.style.display='none'">
+                        <span>A.P.KA</span>
+                    </div>
+                    <p class="footer-about">L'Alliance Politique des Kasavubistes perpétue l'héritage du premier Président de la RDC pour un Congo uni, pacifique et prospère.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#apropos">À Propos</a></li>
+                        <li><a href="#valeurs">Nos Valeurs</a></li>
+                        <li><a href="#histoire">Notre Histoire</a></li>
+                        <li><a href="#leader">Notre Leader</a></li>
+                        <li><a href="#rejoindre">Nous Rejoindre</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Contactez-nous</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Avenue des Kasavubistes, Kinshasa, RDC</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+243 831 700 110</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>abrahamlumbuku@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Alliance Politique des Kasavubistes (A.P.KA). Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/243831700110" class="whatsapp-float" target="_blank" title="Contactez-nous sur WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+        })();
+        
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            document.querySelector('.nav-container').classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all nav links
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('.nav-container').classList.remove('show');
+                    }
+                }
+            });
+        });
+        
+        // Update active nav item based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Gallery Slider functionality
+        const slides = document.querySelectorAll('.gallery-slide');
+        const dots = document.querySelectorAll('.gallery-dot');
+        const prevBtn = document.getElementById('galleryPrev');
+        const nextBtn = document.getElementById('galleryNext');
+        let currentSlide = 0;
+        let isTransitioning = false;
+        
+        function showSlide(index) {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            
+            // Remove active class from current slide
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            
+            // Update current slide index
+            currentSlide = index;
+            
+            // Add active class to new slide
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+            
+            // Reset transition flag after animation
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 600);
+        }
+        
+        function nextSlide() {
+            const next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+        
+        function prevSlide() {
+            const prev = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prev);
+        }
+        
+        // Event listeners
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+        
+        // Auto-play functionality
+        let autoPlayInterval;
+        
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+        
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+        
+        // Start auto-play
+        startAutoPlay();
+        
+        // Pause auto-play on hover
+        const slider = document.querySelector('.gallery-slider');
+        slider.addEventListener('mouseenter', stopAutoPlay);
+        slider.addEventListener('mouseleave', startAutoPlay);
+        
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        slider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        slider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+        
+        // Form submission
+        const form = document.getElementById('membershipForm');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+                
+                // Remove any existing messages
+                const existingMessage = form.querySelector('.form-success, .form-error');
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+                
+                // Form validation
+                const fullname = document.getElementById('fullname').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const province = document.getElementById('province').value;
+                const phone = document.getElementById('phone').value.trim();
+                const message = document.getElementById('message').value.trim();
+                
+                if (!fullname || !email || !province) {
+                    showMessage('Veuillez remplir tous les champs obligatoires.', 'error');
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                    return;
+                }
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    showMessage('Veuillez entrer une adresse email valide.', 'error');
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                    return;
+                }
+                
+                // Prepare form data
+                const formData = new FormData();
+                formData.append('fullname', fullname);
+                formData.append('email', email);
+                formData.append('province', province);
+                formData.append('phone', phone);
+                formData.append('message', message);
+                formData.append('_subject', 'Nouvelle demande d\'adhésion APKA');
+                formData.append('_replyto', email);
+                
+                // Create WhatsApp message with form data
+                const whatsappMessage = `Nouvelle demande d'adhésion APKA%0A%0ANom: ${fullname}%0AEmail: ${email}%0ATéléphone: ${phone}%0AProvince: ${province}%0AMessage: ${message}`;
+                const whatsappUrl = `https://wa.me/243831700110?text=${whatsappMessage}`;
+                
+                // Show success message with WhatsApp link
+                showMessage(`
+                    <div style="text-align: left;">
+                        <strong>Formulaire soumis avec succès!</strong><br><br>
+                        <strong>Détails de la demande:</strong><br>
+                        Nom: ${fullname}<br>
+                        Email: ${email}<br>
+                        Téléphone: ${phone}<br>
+                        Province: ${province}<br>
+                        Message: ${message}<br><br>
+                        <a href="${whatsappUrl}" target="_blank" style="color: white; text-decoration: underline; background: rgba(255,255,255,0.2); padding: 8px 12px; border-radius: 5px; display: inline-block;">
+                            <i class="fab fa-whatsapp"></i> Confirmer via WhatsApp
+                        </a>
+                    </div>
+                `, 'success');
+                form.reset();
+                
+                // Auto-open WhatsApp after 2 seconds
+                setTimeout(() => {
+                    window.open(whatsappUrl, '_blank');
+                }, 2000);
+                
+                // Reset button state
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            });
+        }
+        
+        function showMessage(message, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = type === 'success' ? 'form-success' : 'form-error';
+            messageDiv.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                <br><br>
+                ${message}
+            `;
+            
+            form.appendChild(messageDiv);
+            
+            // Auto-remove success message after 5 seconds
+            if (type === 'success') {
+                setTimeout(() => {
+                    messageDiv.remove();
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
